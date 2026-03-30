@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Monkey Mod Manager</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', sans-serif; }
+
+    body {
+      background: radial-gradient(circle at top, #111827, #000000);
+      color: white;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    h1 {
+      font-size: 56px;
+      margin-bottom: 10px;
+      animation: fadeUp 1s ease forwards;
+    }
+
+    .subtitle {
+      color: #9ca3af;
+      margin-bottom: 40px;
+      font-size: 18px;
+      animation: fadeUp 1.2s ease forwards;
+    }
+
+    .download-btn {
+      display: inline-block;
+      padding: 18px 40px;
+      font-size: 20px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, #22c55e, #4ade80);
+      color: black;
+      text-decoration: none;
+      font-weight: 700;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+      transition: all 0.3s ease;
+      animation: fadeUp 1.4s ease forwards;
+    }
+
+    .download-btn:hover {
+      transform: scale(1.08) translateY(-3px);
+      box-shadow: 0 20px 60px rgba(34,197,94,0.4);
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      margin-top: 80px;
+    }
+
+    .card {
+      background: rgba(31, 41, 55, 0.6);
+      backdrop-filter: blur(10px);
+      padding: 30px;
+      border-radius: 24px;
+      text-align: left;
+      transition: 0.3s;
+      transform: translateY(40px);
+      opacity: 0;
+    }
+
+    .card.visible {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .card:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    }
+
+    .card h2 {
+      margin-bottom: 10px;
+      font-size: 22px;
+    }
+
+    .card p {
+      color: #9ca3af;
+    }
+
+    footer {
+      margin-top: 100px;
+      font-size: 14px;
+      color: #6b7280;
+      animation: fadeUp 2s ease forwards;
+    }
+
+    /* floating glow circles */
+    .bg-circle {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(100px);
+      opacity: 0.2;
+      z-index: -1;
+      animation: float 20s infinite linear;
+    }
+
+    .circle1 { width: 300px; height: 300px; background: #22c55e; top: 10%; left: 5%; }
+    .circle2 { width: 400px; height: 400px; background: #3b82f6; bottom: 10%; right: 5%; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0) translateX(0); }
+      50% { transform: translateY(-50px) translateX(30px); }
+      100% { transform: translateY(0) translateX(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="bg-circle circle1"></div>
+  <div class="bg-circle circle2"></div>
+
+  <div class="container">
+    <h1>Monkey Mod Manager REMAKE</h1>
+    <p class="subtitle">Fast, simple easy to use its for gorilla tag.. like what else would it be for..</p>
+
+    <a class="download-btn" href="downloads/MonkeyModManager REMAKE.exe" download>
+      ⬇ Download v1.0.0
+    </a>
+
+    <div class="features">
+      <div class="card">
+        <h2>⚡ pretty fast!!</h2>
+        <p>Install bepinex and required mods for gorilla game thing.</p>
+      </div>
+
+      <div class="card">
+        <h2>🔒 safe and securee</h2>
+        <p>all of deez mods are checked to be safe!!?!?!</p>
+      </div>
+
+      <div class="card">
+        <h2>⬇ ez to download</h2>
+        <p>one click and install and play game</p>
+      </div>
+    </div>
+
+
+    <footer>
+      © 2026 Monkey Mod Manager REMAKE. made by @osnide on discord. Not affiliated with original creators.
+    </footer>
+  </div>
+
+
+  <script>
+    // scroll animation
+    const cards = document.querySelectorAll('.card');
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.2 });
+
+    cards.forEach(card => observer.observe(card));
+  </script>
+
+</body>
+</html>
